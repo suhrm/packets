@@ -115,3 +115,20 @@ func (f *Frame) resize(length int) {
 		*f = (*f)[:length]
 	}
 }
+
+// Return if frame is broadcast
+
+func (f *Frame) IsBroadcast() bool {
+	if f == nil {
+		return false
+	}
+	if f.Destination().String() == "ff:ff:ff:ff:ff:ff" {
+		return true
+	}
+	return false
+}
+
+func (f *Frame) IsMultiCast() bool {
+	panic("Not implimented yet")
+	// return true
+}
